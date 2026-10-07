@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff7fa">
+<title>Для тебя!</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    color: #302930;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(246, 191, 207, .55),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(229, 177, 194, .35),
+            transparent 28%
+        ),
+        #fff9fb;
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.intro {
+    min-height: 100svh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 18px;
+
+    text-align: center;
+}
+
+.intro-content {
+    width: 100%;
+    max-width: 520px;
+}
+
+.eyebrow {
+    margin-bottom: 14px;
+
+    color: #a28d96;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: .22em;
+    text-transform: uppercase;
+}
+
+.intro h1 {
+    margin-bottom: 15px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(40px, 11vw, 68px);
+    font-weight: 400;
+
+    line-height: .98;
+}
+
+.subtitle {
+    max-width: 380px;
+
+    margin: 0 auto 12px;
+
+    color: #8c7d85;
+
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+
+/* =========================================
+   CAKE
+========================================= */
+
+.cake-wrapper {
+    position: relative;
+
+    width: 300px;
+    height: 280px;
+
+    margin: 5px auto 0;
+}
+
+.cake-shadow {
+    position: absolute;
+
+    width: 235px;
+    height: 24px;
+
+    left: 50%;
+    bottom: 24px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: rgba(80, 45, 55, .12);
+
+    filter: blur(11px);
+}
+
+
+/* Cake container */
+
+.cake {
+    position: absolute;
+
+    width: 230px;
+    height: 160px;
+
+    left: 50%;
+    bottom: 45px;
+
+    transform: translateX(-50%);
+}
+
+
+/* Bottom layer */
+
+.cake-bottom {
+    position: absolute;
+
+    width: 230px;
+    height: 62px;
+
+    left: 0;
+    bottom: 0;
+
+    border-radius: 14px 14px 11px 11px;
+
+    background:
+        linear-gradient(
+            #f0b0c2,
+            #e495aa
+        );
+
+    box-shadow:
+        inset 0 -5px rgba(170, 75, 105, .09);
+}
+
+
+/* Middle layer */
+
+.cake-middle {
+    position: absolute;
+
+    width: 210px;
+    height: 57px;
+
+    left: 10px;
+    bottom: 47px;
+
+    border-radius: 14px 14px 10px 10px;
+
+    background:
+        linear-gradient(
+            #ffe5eb,
+            #f5c3d0
+        );
+
+    box-shadow:
+        inset 0 -4px rgba(170, 75, 105, .06);
+}
+
+
+/* Top layer */
+
+.cake-top {
+    position: absolute;
+
+    width: 190px;
+    height: 53px;
+
+    left: 20px;
+    bottom: 87px;
+
+    border-radius: 14px 14px 10px 10px;
+
+    background:
+        linear-gradient(
+            #fff7f8,
+            #ffdee7
+        );
+}
+
+
+/* Icing */
+
+.icing {
+    position: absolute;
+
+    width: 190px;
+    height: 25px;
+
+    left: 20px;
+    bottom: 116px;
+
+    z-index: 3;
+
+    border-radius: 50%;
+
+    background: #fffafd;
+}
+
+.drip {
+    position: absolute;
+
+    width: 19px;
+    height: 25px;
+
+    top: 8px;
+
+    border-radius:
+        0 0 12px 12px;
+
+    background: #fffafd;
+}
+
+.drip:nth-child(1) {
+    left: 31px;
+}
+
+.drip:nth-child(2) {
+    left: 86px;
+    height: 20px;
+}
+
+.drip:nth-child(3) {
+    left: 138px;
+    height: 28px;
+}
+
+
+/* Decorations */
+
+.cake-dot {
+    position: absolute;
+
+    width: 13px;
+    height: 13px;
+
+    z-index: 4;
+
+    border-radius: 50%;
+
+    background: #d96d88;
+}
+
+.dot-one {
+    left: 55px;
+    top: 40px;
+}
+
+.dot-two {
+    left: 109px;
+    top: 34px;
+}
+
+.dot-three {
+    left: 150px;
+    top: 43px;
+}
+
+
+/* =========================================
+   CANDLES
+========================================= */
+
+.candles {
+    position: absolute;
+
+    width: 120px;
+    height: 100px;
+
+    left: 50%;
+    bottom: 110px;
+
+    transform: translateX(-50%);
+
+    z-index: 20;
+}
+
+
+/*
+    ВАЖНО:
+    Свечи позиционируются относительно
+    отдельного контейнера .candles.
+*/
+
+.candle {
+    position: absolute;
+
+    width: 17px;
+    height: 58px;
+
+    bottom: 0;
+
+    border-radius: 5px 5px 3px 3px;
+
+    cursor: pointer;
+
+    background:
+        repeating-linear-gradient(
+            135deg,
+            #eda5ba 0px,
+            #eda5ba 6px,
+            #fff4f6 6px,
+            #fff4f6 12px
+        );
+
+    box-shadow:
+        0 4px 8px rgba(120, 65, 85, .12);
+
+    transition:
+        transform .18s ease,
+        filter .2s ease;
+}
+
+
+/* Каждая свеча имеет свою точную позицию */
+
+.candle:nth-child(1) {
+    left: 8px;
+}
+
+.candle:nth-child(2) {
+    left: 51px;
+}
+
+.candle:nth-child(3) {
+    left: 94px;
+}
+
+
+.candle:active {
+    transform: scale(.9);
+}
+
+
+/* Flame */
+
+.flame {
+    position: absolute;
+
+    width: 17px;
+    height: 25px;
+
+    left: 50%;
+    top: -29px;
+
+    transform:
+        translateX(-50%)
+        scale(0);
+
+    transform-origin: center bottom;
+
+    border-radius:
+        60% 40% 60% 40%;
+
+    background:
+        radial-gradient(
+            circle at 50% 65%,
+            #fff6a8 0 20%,
+            #ffd15c 35%,
+            #ff9145 75%
+        );
+
+    filter:
+        drop-shadow(
+            0 0 9px rgba(255, 170, 70, .75)
+        );
+
+    transition:
+        transform .35s cubic-bezier(.2, 1.5, .4, 1);
+}
+
+
+.candle.lit .flame {
+    transform:
+        translateX(-50%)
+        scale(1);
+
+    animation:
+        flame .7s infinite alternate ease-in-out;
+}
+
+
+@keyframes flame {
+
+    from {
+        transform:
+            translateX(-50%)
+            rotate(-4deg)
+            scale(.95);
+    }
+
+    to {
+        transform:
+            translateX(-50%)
+            rotate(4deg)
+            scale(1.05);
+    }
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.main-button {
+    border: none;
+
+    padding: 14px 27px;
+
+    border-radius: 999px;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #df829c,
+            #c76683
+        );
+
+    box-shadow:
+        0 12px 30px rgba(201, 103, 131, .27);
+
+    transition:
+        transform .2s,
+        box-shadow .2s;
+}
+
+.main-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 16px 35px rgba(201, 103, 131, .32);
+}
+
+.main-button:active {
+    transform: scale(.96);
+}
+
+
+.status {
+    min-height: 22px;
+
+    margin-top: 13px;
+
+    color: #9b8c93;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   CARD SECTION
+========================================= */
+
+.card-section {
+    min-height: 100svh;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    padding:
+        80px 18px
+        70px;
+}
+
+.card-section.visible {
+    display: flex;
+}
+
+.card-container {
+    width: min(700px, 100%);
+
+    text-align: center;
+}
+
+.card-label {
+    margin-bottom: 17px;
+
+    color: #a28e97;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: .19em;
+    text-transform: uppercase;
+}
+
+
+/* =========================================
+   BOOK
+========================================= */
+
+.book {
+    position: relative;
+
+    width: 100%;
+    max-width: 650px;
+
+    height: 485px;
+
+    margin: auto;
+
+    perspective: 1500px;
+}
+
+
+.page {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding:
+        clamp(30px, 7vw, 60px);
+
+    text-align: left;
+
+    border:
+        1px solid rgba(180, 140, 155, .18);
+
+    border-radius: 23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #fff7fa
+        );
+
+    box-shadow:
+        0 25px 75px
+        rgba(75, 45, 58, .13);
+
+    opacity: 0;
+
+    transform:
+        translateX(35px)
+        rotateY(-8deg);
+
+    pointer-events: none;
+
+    transition:
+        opacity .45s ease,
+        transform .55s ease;
+}
+
+
+.page.active {
+    opacity: 1;
+
+    transform:
+        translateX(0)
+        rotateY(0);
+
+    pointer-events: auto;
+}
+
+
+.page-number {
+    width: 100%;
+
+    margin-bottom: 27px;
+
+    color: #b5a3ab;
+
+    font-size: 12px;
+}
+
+
+.page h2 {
+    width: 100%;
+
+    margin-bottom: 22px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(31px, 7vw, 47px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+}
+
+
+.page p {
+    width: 100%;
+
+    color: #625860;
+
+    font-size:
+        clamp(15px, 3.8vw, 18px);
+
+    line-height: 1.75;
+}
+
+
+.final {
+    text-align: center;
+}
+
+
+.final .page-number,
+.final h2,
+.final p {
+    text-align: center;
+}
+
+
+.signature {
+    margin-top: 34px;
+
+    font-family: Georgia, serif;
+
+    font-size: 22px;
+
+    color: #5d4c55;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.controls {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 16px;
+
+    margin-top: 25px;
+}
+
+
+.nav {
+    width: 46px;
+    height: 46px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(160, 120, 135, .25);
+
+    background: white;
+
+    color: #604e57;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+
+.nav:hover {
+    transform: translateY(-2px);
+
+    background: #fff1f5;
+}
+
+
+.dots {
+    display: flex;
+
+    gap: 7px;
+
+    align-items: center;
+}
+
+
+.dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #d7c6cc;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+
+.dot.active {
+    width: 20px;
+
+    border-radius: 10px;
+
+    background: #cf7a94;
+}
+
+
+.hint {
+    margin-top: 14px;
+
+    color: #aaa0a5;
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   CONFETTI
+========================================= */
+
+.confetti {
+    position: fixed;
+
+    top: -20px;
+
+    width: 8px;
+    height: 13px;
+
+    z-index: 100;
+
+    pointer-events: none;
+
+    animation:
+        confettiFall
+        linear
+        forwards;
+}
+
+
+@keyframes confettiFall {
+
+    to {
+        transform:
+            translate3d(
+                var(--x),
+                110vh,
+                0
+            )
+            rotate(
+                var(--rotation)
+            );
+
+        opacity: .1;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 520px) {
+
+    .intro {
+        padding-top: 20px;
+    }
+
+    .intro h1 {
+        font-size: 43px;
+    }
+
+    .cake-wrapper {
+        transform: scale(.92);
+        margin-top: -2px;
+        margin-bottom: -8px;
+    }
+
+    .book {
+        height: 515px;
+    }
+
+    .page {
+        padding:
+            32px 25px;
+    }
+
+    .page p {
+        line-height: 1.65;
+    }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .001ms !important;
+        transition-duration: .001ms !important;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ======================================
+     INTRO SCREEN
+====================================== -->
+
+<section class="intro">
+
+    <div class="intro-content">
+
+        <div class="eyebrow">
+            Маленький сюрприз для тебя
+        </div>
+
+        <h1>
+            С днём рождения!
+        </h1>
+
+        <p class="subtitle">
+            Перед тем как открыть всё остальное,
+            нужно сделать одну маленькую вещь)
+        </p>
+
+
+        <!-- CAKE -->
+
+        <div class="cake-wrapper">
+
+            <div class="cake-shadow"></div>
+
+            <div class="cake">
+
+                <div class="cake-bottom"></div>
+
+                <div class="cake-middle"></div>
+
+                <div class="cake-top"></div>
+
+                <div class="icing">
+
+                    <div class="drip"></div>
+                    <div class="drip"></div>
+                    <div class="drip"></div>
+
+                </div>
+
+                <div class="cake-dot dot-one"></div>
+                <div class="cake-dot dot-two"></div>
+                <div class="cake-dot dot-three"></div>
+
+
+                <!-- CANDLES -->
+
+                <div class="candles">
+
+                    <div
+                        class="candle"
+                        data-number="0"
+                    >
+                        <div class="flame"></div>
+                    </div>
+
+                    <div
+                        class="candle"
+                        data-number="1"
+                    >
+                        <div class="flame"></div>
+                    </div>
+
+                    <div
+                        class="candle"
+                        data-number="2"
+                    >
+                        <div class="flame"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="main-button"
+            id="lightButton"
+        >
+            Зажечь свечу
+        </button>
+
+        <div
+            class="status"
+            id="status"
+        >
+            Осталось зажечь 3 свечи
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================
+     DIGITAL CARD
+====================================== -->
+
+<section
+    class="card-section"
+    id="cardSection"
+>
+
+    <div class="card-container">
+
+        <div class="card-label">
+            сделано специально для тебя
+        </div>
+
+
+        <div
+            class="book"
+            id="book"
+        >
+
+
+            <!-- PAGE 1 -->
+
+            <article class="page active">
+
+                <div class="page-number">
+                    01 / 06
+                </div>
+
+                <h2>
+                    С днём рождения!
+                </h2>
+
+                <p>
+                    Если ты это читаешь, значит
+                    все три свечи уже горят
+
+                    <br><br>
+
+                    А теперь небольшое признание!
+                    Да, я реально заморочился и сделал
+                    для тебя этот маленький сайт, хехе
+
+                    <br><br>
+
+                    Не потому что так надо,
+                    а потому что мне хотелось оставить
+                    тебе что-то, что останется
+                    не только в коробке, но и в электронном виде;)
+                </p>
+
+            </article>
+
+
+            <!-- PAGE 2 -->
+
+            <article class="page">
+
+                <div class="page-number">
+                    02 / 06
+                </div>
+
+                <h2>
+                    Немного от меня 
+                </h2>
+
+                <p>
+                    Спасибо тебе за все, за наши разговоры,
+                    мэмчики и моменты, которые иногда
+                    кажутся совершенно обычными,
+                    но потом почему-то вспоминаются
+                    с улыбкой
+
+                    <br><br>
+
+                    Я правда очень ценю тебя
+                    и наше общение.
+
+                    С тобой легко быть собой,
+                    и это на самом деле дорогого стоит
+                </p>
+
+            </article>
+
+
+            <!-- PAGE 3 -->
+
+            <article class="page">
+
+                <div class="page-number">
+                    03 / 06
+                </div>
+
+                <h2>
+                    Теперь самое главное..
+                </h2>
+
+                <p>
+                    Я хочу, чтобы у тебя было
+                    как можно больше дней,
+                    после которых оставалось много приятных моментов
+
+                    <br><br>
+
+                    Чтобы желания не оставались
+                    просто желаниями,
+                    чтобы рядом были любимые люди
+                    и чтобы поводов улыбаться было
+                    гораздо больше, чем поводов
+                    расстраиваться
+                </p>
+
+            </article>
+
+
+            <!-- PAGE 4 -->
+
+            <article class="page">
+
+                <div class="page-number">
+                    04 / 06
+                </div>
+
+                <h2>
+                    Пусть будет много хорошего и прекрасного
+                </h2>
+
+                <p>
+                    Пусть этот год твоей жизни
+                    принесёт тебе много классных событий,
+                    неожиданных приятностей,
+                    новых воспоминаний и моментов,
+                    которыми потом захочется поделиться
+
+                    <br><br>
+
+                    И пусть даже самые обычные дни
+                    иногда становятся особенными
+                </p>
+
+            </article>
+
+
+            <!-- PAGE 5 -->
+
+            <article class="page">
+
+                <div class="page-number">
+                    05 / 06
+                </div>
+
+                <h2>
+                    На память
+                </h2>
+
+                <p>
+                    Надеюсь, когда-нибудь спустя время
+                    ты случайно снова откроешь эту страницу,
+                    увидишь и хотя бы немного
+                    улыбнёшься
+
+                    <br><br>
+
+                    Потому что этот маленький сайт -
+                    часть одного конкретного дня
+
+                    Твоего дня рождения.
+                </p>
+
+            </article>
+
+
+            <!-- PAGE 6 -->
+
+            <article class="page final">
+
+                <div class="page-number">
+                    06 / 06
+                </div>
+
+                <h2>
+                    Ну вот и всё :)
+                </h2>
+
+                <p>
+                    С днём рождения ещё раз! 
+
+                    <br><br>
+
+                    Береги себя, чаще улыбайся
+                    и пусть впереди будет ещё куча
+                    историй, которые однажды станут
+                    хорошими воспоминаниями
+                </p>
+
+                <div class="signature">
+                    — by Миколинус &lt;3
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <div class="controls">
+
+            <button
+                class="nav"
+                id="previous"
+            >
+                ←
+            </button>
+
+            <div
+                class="dots"
+                id="dots"
+            ></div>
+
+            <button
+                class="nav"
+                id="next"
+            >
+                →
+            </button>
+
+        </div>
+
+        <div class="hint">
+            Свайпай карточку влево или вправо
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<script>
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+const candles =
+    document.querySelectorAll(".candle");
+
+const lightButton =
+    document.getElementById("lightButton");
+
+const status =
+    document.getElementById("status");
+
+const cardSection =
+    document.getElementById("cardSection");
+
+let candlesLit = 0;
+
+
+/* =========================================
+   UPDATE STATUS
+========================================= */
+
+function updateStatus() {
+
+    const remaining =
+        3 - candlesLit;
+
+
+    if (remaining === 3) {
+
+        status.textContent =
+            "Осталось зажечь 3 свечи";
+
+    }
+
+    else if (remaining === 2) {
+
+        status.textContent =
+            "Осталось зажечь 2 свечи";
+
+    }
+
+    else if (remaining === 1) {
+
+        status.textContent =
+            "Осталась зажечь 1 свечу";
+
+    }
+
+    else {
+
+        status.textContent =
+            "Загадывай желание ✨";
+
+        lightButton.textContent =
+            "Открыть подарок";
+
+    }
+}
+
+
+/* =========================================
+   LIGHT NEXT CANDLE
+========================================= */
+
+function lightNextCandle() {
+
+    if (candlesLit >= 3) {
+
+        cardSection.classList.add("visible");
+
+        cardSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+        return;
+    }
+
+
+    /*
+        Берём свечу именно по индексу.
+        Поэтому нельзя случайно зажечь
+        третью раньше первой.
+    */
+
+    const candle =
+        candles[candlesLit];
+
+
+    candle.classList.add("lit");
+
+    candlesLit++;
+
+
+    updateStatus();
+
+
+    /* После третьей свечи */
+
+    if (candlesLit === 3) {
+
+        createConfetti();
+
+
+        setTimeout(() => {
+
+            cardSection.classList.add(
+                "visible"
+            );
+
+            cardSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }, 1100);
+
+    }
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+lightButton.addEventListener(
+    "click",
+    lightNextCandle
+);
+
+
+/* =========================================
+   CANDLE CLICK
+========================================= */
+
+candles.forEach((candle, index) => {
+
+    candle.addEventListener(
+        "click",
+        () => {
+
+            /*
+                Разрешаем нажимать только
+                на следующую свечу.
+            */
+
+            if (index === candlesLit) {
+
+                lightNextCandle();
+
+            }
+
+        }
+    );
+
+});
+
+
+/* =========================================
+   CONFETTI
+========================================= */
+
+function createConfetti() {
+
+    const colors = [
+        "#e88fa8",
+        "#f6c5d2",
+        "#d8a6b7",
+        "#f2c36b",
+        "#b9a1d1"
+    ];
+
+
+    for (let i = 0; i < 100; i++) {
+
+        const piece =
+            document.createElement("div");
+
+
+        piece.className =
+            "confetti";
+
+
+        const x =
+            (Math.random() * 2 - 1)
+            * window.innerWidth
+            * 1.2;
+
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+
+        piece.style.setProperty(
+            "--x",
+            x + "px"
+        );
+
+
+        piece.style.setProperty(
+            "--rotation",
+            (
+                Math.random() * 720 - 360
+            ) + "deg"
+        );
+
+
+        piece.style.animationDuration =
+            (
+                2 +
+                Math.random() * 2.5
+            ) + "s";
+
+
+        piece.style.animationDelay =
+            (
+                Math.random() * .45
+            ) + "s";
+
+
+        piece.style.background =
+            colors[
+                Math.floor(
+                    Math.random()
+                    * colors.length
+                )
+            ];
+
+
+        document.body.appendChild(piece);
+
+
+        setTimeout(() => {
+
+            piece.remove();
+
+        }, 5500);
+
+    }
+}
+
+
+/* =========================================
+   BOOK
+========================================= */
+
+const pages =
+    document.querySelectorAll(".page");
+
+const dots =
+    document.getElementById("dots");
+
+const previous =
+    document.getElementById("previous");
+
+const next =
+    document.getElementById("next");
+
+let currentPage = 0;
+
+
+/* =========================================
+   CREATE DOTS
+========================================= */
+
+pages.forEach((page, index) => {
+
+    const dot =
+        document.createElement("span");
+
+
+    dot.className =
+        "dot";
+
+
+    if (index === 0) {
+
+        dot.classList.add("active");
+
+    }
+
+
+    dot.addEventListener(
+        "click",
+        () => {
+
+            showPage(index);
+
+        }
+    );
+
+
+    dots.appendChild(dot);
+
+});
+
+
+/* =========================================
+   SHOW PAGE
+========================================= */
+
+function showPage(index) {
+
+    if (index < 0) {
+        index = 0;
+    }
+
+    if (index >= pages.length) {
+        index = pages.length - 1;
+    }
+
+
+    currentPage = index;
+
+
+    pages.forEach(
+        (page, pageIndex) => {
+
+            page.classList.toggle(
+                "active",
+                pageIndex === currentPage
+            );
+
+        }
+    );
+
+
+    document
+        .querySelectorAll(".dot")
+        .forEach(
+            (dot, dotIndex) => {
+
+                dot.classList.toggle(
+                    "active",
+                    dotIndex === currentPage
+                );
+
+            }
+        );
+}
+
+
+/* =========================================
+   NAVIGATION BUTTONS
+========================================= */
+
+previous.addEventListener(
+    "click",
+    () => {
+
+        showPage(
+            currentPage - 1
+        );
+
+    }
+);
+
+
+next.addEventListener(
+    "click",
+    () => {
+
+        showPage(
+            currentPage + 1
+        );
+
+    }
+);
+
+
+/* =========================================
+   SWIPE
+========================================= */
+
+const book =
+    document.getElementById("book");
+
+let startX = 0;
+let startY = 0;
+
+
+book.addEventListener(
+    "touchstart",
+    event => {
+
+        const touch =
+            event.changedTouches[0];
+
+        startX =
+            touch.clientX;
+
+        startY =
+            touch.clientY;
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+book.addEventListener(
+    "touchend",
+    event => {
+
+        const touch =
+            event.changedTouches[0];
+
+
+        const deltaX =
+            touch.clientX - startX;
+
+
+        const deltaY =
+            touch.clientY - startY;
+
+
+        /*
+            Если горизонтальное движение
+            достаточно большое — перелистываем.
+        */
+
+        if (
+            Math.abs(deltaX) > 55 &&
+            Math.abs(deltaX) >
+            Math.abs(deltaY)
+        ) {
+
+            if (deltaX < 0) {
+
+                showPage(
+                    currentPage + 1
+                );
+
+            } else {
+
+                showPage(
+                    currentPage - 1
+                );
+
+            }
+
+        }
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+/* =========================================
+   KEYBOARD
+========================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (event.key === "ArrowRight") {
+
+            showPage(
+                currentPage + 1
+            );
+
+        }
+
+
+        if (event.key === "ArrowLeft") {
+
+            showPage(
+                currentPage - 1
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
